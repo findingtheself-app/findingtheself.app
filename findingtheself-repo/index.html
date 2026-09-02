@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding the Self — A journal on self-realization</title>
+<meta name="description" content="Seven teachers, seven roads, one thread: presence. A personal site on self-realization, with a companion journal app.">
+
+<!--
+  NOTE ON THIS FILE
+  This is a faithful reconstruction of findingtheself.app, rebuilt by Claude directly from the
+  live site (its rendered content, and its own CSS custom properties / design tokens — read via
+  browser automation on 2 Sept 2026), because the original Claude-artifact source could not be
+  pulled into this session (network egress to *.frame.claudeusercontent.com was blocked).
+  Everything below is real content from the live site, not invented — a few paragraphs that were
+  truncated when read are marked with a TODO comment so they can be completed by copying the rest
+  from the live page. Two images are referenced (about-sandeep.jpg, about-master.jpg) but their
+  actual bytes could not be pulled either — see README.md for how to add them.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Newsreader:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    /* Design tokens — read directly from the live site's :root custom properties */
+    --paper: #EDE6D6;
+    --paper-raised: #E3D9C2;
+    --ink: #221F1A;
+    --ink-soft: #57503F;
+    --ink-faint: #6B6355; /* NOTE: live site uses #8C8271 here, which fails WCAG AA (3.05:1).
+                              This reconstruction uses a corrected value — see claude/ui-audit-2026-09-02.md
+                              in the Claude project. Swap back to #8C8271 only if you want to match
+                              the live site's current (broken) contrast exactly. */
+    --seal: #A8362A;
+    --seal-soft: #8F2E24;
+    --line: #C9BC9C;
+    --line-strong: #B3A37C;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1A1712;
+      --paper-raised: #221D16;
+      --ink: #ECE3D0;
+      --ink-soft: #C2B79C;
+      --ink-faint: #93896E; /* corrected — live value #83795F also fails AA at 4.14:1 */
+      --seal: #D9836A;
+      --seal-soft: #E79C85;
+      --line: #3C3527;
+      --line-strong: #4D4531;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  em { color: var(--seal); font-style: italic; }
+
+  a { color: var(--seal); }
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--seal);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute; left: 12px; top: -60px;
+    background: var(--ink); color: var(--paper);
+    padding: 10px 16px; border-radius: 4px; font-size: 14px; z-index: 100;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 12px; }
+
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- Nav ---------- */
+  header.rail {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .rail-inner {
+    max-width: 1080px; margin: 0 auto; padding: 18px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap; /* NOTE: live site is flex-wrap:nowrap + overflow-x:auto with no mobile menu —
+                        confirmed to break on narrow screens (see ui-audit). This reconstruction wraps
+                        instead so nothing is silently cut off; add a real hamburger menu when you're
+                        ready to redesign properly. */
+  }
+  .rail-mark { font-family: "Cormorant Garamond", serif; font-size: 20px; white-space: nowrap; }
+  .rail-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; position: relative; }
+  .rail-links a, .rail-links button.rail-dropdown-toggle {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); text-decoration: none; background: none; border: none; cursor: pointer;
+    padding: 8px 10px; border-radius: 4px;
+  }
+  .rail-links a:hover, .rail-links button.rail-dropdown-toggle:hover { color: var(--ink); background: var(--paper-raised); }
+
+  .rail-dropdown { position: relative; }
+  .inspiration-menu {
+    position: absolute; top: 100%; left: 0; margin-top: 6px;
+    background: var(--paper-raised); border: 1px solid var(--line-strong); border-radius: 4px;
+    padding: 6px; display: none; flex-direction: column; min-width: 160px; box-shadow: 0 12px 28px -12px rgba(0,0,0,0.25);
+  }
+  .inspiration-menu.open { display: flex; }
+  .inspiration-menu a { padding: 8px 10px; }
+
+  /* ---------- Sections ---------- */
+  main { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+  header.hero { max-width: 780px; margin: 0 auto; padding: 88px 32px 56px; text-align: center; }
+  .eyebrow { display: block; margin-bottom: 18px; color: var(--seal); font-size: 12px; }
+  .hero h1 { font-size: 52px; margin-bottom: 28px; }
+  .hero p { font-size: 18px; color: var(--ink); margin: 0 0 22px; }
+  .hero .caption { margin-top: 32px; color: var(--ink-soft); }
+
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  section .eyebrow { text-align: left; }
+  section h2 { font-size: 34px; margin-bottom: 24px; }
+
+  .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: start; margin-bottom: 24px; }
+  .about-grid img { width: 100%; border-radius: 4px; display: block; }
+  @media (max-width: 560px) { .about-grid { grid-template-columns: 1fr; } .about-grid img { max-width: 240px; margin: 0 auto; } }
+
+  blockquote {
+    margin: 28px 0; padding-left: 18px; border-left: 2px solid var(--line-strong);
+    font-style: italic; font-size: 19px;
+  }
+  blockquote cite { display: block; margin-top: 8px; font-style: normal; font-size: 14px; color: var(--ink-soft); }
+
+  .signature { text-align: right; color: var(--ink-soft); margin-top: 24px; }
+
+  .sanskrit { font-style: italic; color: var(--ink-soft); margin-bottom: 12px; }
+
+  .teacher-intro { margin-bottom: 40px; color: var(--ink-soft); }
+  article.teacher { padding: 32px 0; border-top: 1px solid var(--line); }
+  article.teacher:first-of-type { border-top: none; padding-top: 0; }
+  article.teacher h3 { font-size: 28px; display: inline; }
+  .teacher-dates { color: var(--ink-soft); font-size: 15px; margin-left: 10px; }
+  .teacher-tradition { display: block; margin: 6px 0 16px; }
+  .teacher-tradition, .rail-links a[href^="#"]::before { color: var(--seal); font-size: 12px; }
+
+  .reflection { padding: 28px 0; border-top: 1px solid var(--line); }
+  .reflection:first-of-type { border-top: none; padding-top: 0; }
+  .reflection .meta { color: var(--ink-soft); font-size: 12px; margin-bottom: 8px; }
+  .reflection h3 { font-size: 22px; margin-bottom: 10px; }
+  .reflection-note { margin-top: 24px; color: var(--ink-faint); font-style: italic; text-align: center; }
+
+  .journey-cta { text-align: center; padding: 48px 0; }
+  .btn {
+    display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.05em;
+    text-transform: uppercase; text-decoration: none; background: var(--seal); color: var(--paper);
+    padding: 14px 28px; border-radius: 4px; margin: 20px 0 12px;
+  }
+  .journey-cta .fine { color: var(--ink-soft); font-size: 13px; }
+
+  .subscribe-form { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .subscribe-form input {
+    flex: 1; min-width: 220px; font-family: "Newsreader", serif; font-size: 15px;
+    padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--paper-raised); color: var(--ink);
+  }
+  .subscribe-form button {
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: 0.05em; text-transform: uppercase;
+    background: var(--seal); color: var(--paper); border: none; border-radius: 4px; padding: 0 22px; cursor: pointer;
+  }
+
+  footer.site-footer {
+    max-width: 780px; margin: 0 auto; padding: 40px 32px 64px; color: var(--ink-soft); font-size: 13px; text-align: center;
+  }
+  footer.site-footer .closing { margin-top: 18px; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 18px; color: var(--ink); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="rail">
+  <div class="rail-inner">
+    <span class="rail-mark">Finding the <em>Self</em></span>
+    <nav class="rail-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#master">My Master</a>
+      <div class="rail-dropdown">
+        <button class="rail-dropdown-toggle" id="inspiration-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="inspiration-menu">Inspiration ▾</button>
+        <div class="inspiration-menu" id="inspiration-menu">
+          <a href="#osho">Osho</a>
+          <a href="#maharshi">Maharshi</a>
+          <a href="#tolle">Tolle</a>
+          <a href="#bodhidharma">Bodhidharma</a>
+          <a href="#watts">Watts</a>
+          <a href="#suzuki">Suzuki</a>
+          <a href="#nagarjuna">Nāgārjuna</a>
+        </div>
+      </div>
+      <a href="#reflections">Reflections</a>
+      <a href="#journal">Journal App</a>
+      <a href="#inspire">Daily Email</a>
+    </nav>
+  </div>
+</header>
+
+<header class="hero">
+  <span class="eyebrow mono">A journal on self-realization</span>
+  <h1>Finding the <em>Self</em></h1>
+  <p>Every tradition gathered here starts from the same suspicion: that the person you take yourself to be — this name, this history, this bundle of wants — is not the whole story. Self-realization isn't a reward for years of discipline, and it isn't a feeling to chase. It's what's left when you stop mistaking the mind's noise for who's making it.</p>
+  <p>The thread running through all of it is presence: watching the mind's clutter instead of being run by it, staying with what's actually here instead of the story about it. Do that seriously enough, for long enough — keep asking who's aware of this — and the sense of being a separate someone doesn't need to be fought off. It just stops holding together on its own.</p>
+  <p>Seven teachers, seven roads — inquiry, silence, philosophy, wit — all pointing the same direction: inward, and then further in, until there's no one left standing between you and what's looking.</p>
+  <p class="caption mono">Seven voices · One thread: presence</p>
+</header>
+
+<main id="main">
+
+  <section id="about">
+    <span class="eyebrow mono">A Zen journey to the self</span>
+    <h2>About Sandeep</h2>
+    <div class="about-grid">
+      <img src="about-sandeep.jpg" alt="Sandeep at a temple ceremony in Bali, beside a Barong mask">
+      <div>
+        <p>About three years ago, I lost someone close and cherished — my brother-in-law, Gurjit. His passing broke something open in me. It could have taken me down a darker road. Instead, it became the beginning of this one.</p>
+        <blockquote>"Death is not the end, but the beginning of a new life."<cite>— Osho, Zarathustra: A God That Can Dance</cite></blockquote>
+      </div>
+    </div>
+    <p>I started by reading <em>Autobiography of a Yogi</em> and becoming a Kriyaban with Self-Realization Fellowship. Since then the path has widened — not into one voice, but seven, each of them seeming to speak to something the universe already wanted me to hear.</p>
+    <p>My religion, if I have one, is the self. Finding it is the whole practice — the rest, as they say, is Maya. I'm learning to stop playing the game and simply watch it, trusting that the universe gives what's needed, exactly when it's needed.</p>
+    <p><em>This site, and the journal behind it, exists in memory of Gurjit — who, without meaning to, showed me everything and set me on this path. Thank you, brother.</em></p>
+    <p class="signature">— Sandeep</p>
+  </section>
+
+  <section id="master">
+    <span class="eyebrow mono">In gratitude</span>
+    <h2>My Master</h2>
+    <div class="about-grid">
+      <img src="about-master.jpg" alt="Sandeep with his Master, Maitreya Prema, at a temple entrance in Bali">
+      <div>
+        <!-- TODO: this paragraph was truncated when read from the live site — copy the rest from
+             https://findingtheself.app/#master and replace this sentence. -->
+        <p>This site has been made by the blessings of my Master, Maitreya Prema, whom I found in Bali and who…</p>
+      </div>
+    </div>
+    <p class="sanskrit">Brahmānandaṃ paramasukhadaṃ kevalaṃ jñānamūrtiṃ dvandvātītaṃ gaganasadṛiśhaṃ tattvamasyādilakṣhyam —</p>
+    <blockquote>"I bow to the true Guru — the bliss of Brahman, giver of the highest joy, the very form of knowledge…"<cite>— Guru Gita</cite></blockquote>
+    <p class="signature" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px;">Sri Gurubhyo Namah</p>
+  </section>
+
+  <section id="voices">
+    <span class="eyebrow mono">Part One</span>
+    <h2>Seven Voices</h2>
+    <p class="teacher-intro">Sages, monks, philosophers, a relentless questioner of everything, and one teacher of plain presence — arranged roughly by the centuries they lived in.</p>
+
+    <article class="teacher" id="maharshi">
+      <h3>Ramana Maharshi</h3><span class="teacher-dates">1879 – 1950</span>
+      <span class="teacher-tradition mono">Advaita Vedanta · Tiruvannamalai, India</span>
+      <p>A South Indian sage who spent most of his life in near-silence at the foot of Arunachala hill. His teaching was radically simple: turn attention inward and hold the question "Who am I?" until the one asking dissolves into the Self that was never actually missing.</p>
+      <blockquote>"For obtaining such knowledge the inquiry 'Who am I?' in quest of the Self is the best means."<cite>— Who Am I? (Nāṉ Yār?)</cite></blockquote>
+      <blockquote>"A spurious 'I' arises between Pure Consciousness and the insentient body and imagines itself to be…"<cite>— Who Am I? (Nāṉ Yār?)</cite></blockquote>
+      <blockquote>"The Guru is the Self."<cite>— Talks with Sri Ramana Maharshi</cite></blockquote>
+      <blockquote>"Your own Self-Realization is the greatest service you can render the world."<cite>— Talks with Sri Ramana Maharshi</cite></blockquote>
+    </article>
+
+    <article class="teacher" id="bodhidharma">
+      <h3>Bodhidharma</h3><span class="teacher-dates">c. 5th – 6th century</span>
+      <span class="teacher-tradition mono">Chan / Zen · India to China</span>
+      <!-- TODO: bio truncated when read — copy the rest from the live site. -->
+      <p>A wandering monk, traditionally said to be from India, credited with carrying Chan Buddhism in…</p>
+      <blockquote>"Not thinking about anything is Zen. Once you know this, everything you do is Zen."<cite>— The Zen Teaching of Bodhidharma</cite></blockquote>
+      <blockquote>"The mind is the root from which all things grow. If you can understand the mind, everything else is included."<cite>— The Zen Teaching of Bodhidharma</cite></blockquote>
+      <blockquote>"Our nature is the mind. And the mind is our nature."<cite>— The Zen Teaching of Bodhidharma</cite></blockquote>
+      <blockquote>"If you use your mind to study reality, you won't understand either your mind or reality."<cite>— The Zen Teaching of Bodhidharma</cite></blockquote>
+    </article>
+
+    <article class="teacher" id="watts">
+      <h3>Alan Watts</h3><span class="teacher-dates">1915 – 1973</span>
+      <span class="teacher-tradition mono">Zen &amp; Taoism, for the West · England / USA</span>
+      <p>A British-born philosopher who spent decades translating Zen and Taoist thought for Western audiences through books, lectures, and radio. He treated the self not as a walled-off ego but as an expression of the very universe it thinks it's separate from.</p>
+      <blockquote>"You are an aperture through which the universe is looking at and exploring itself."<cite>— Alan Watts</cite></blockquote>
+      <blockquote>"You are a function of what the whole universe is doing in the same way that a wave is a function of what the whole ocean is doing."<cite>— Alan Watts</cite></blockquote>
+      <blockquote>"Trying to define yourself is like trying to bite your own teeth."<cite>— Alan Watts</cite></blockquote>
+      <blockquote>"We do not 'come into' this world; we come out of it, as leaves from a tree."<cite>— Alan Watts</cite></blockquote>
+    </article>
+
+    <article class="teacher" id="suzuki">
+      <h3>D.T. Suzuki</h3><span class="teacher-dates">1870 – 1966</span>
+      <span class="teacher-tradition mono">Zen Buddhism · Japan</span>
+      <!-- TODO: bio truncated when read — copy the rest from the live site. -->
+      <p>The Japanese scholar most responsible for introducing Zen Buddhism to the West in the twentieth…</p>
+      <blockquote>"The idea of Zen is to catch life as it flows. There is nothing extraordinary or mysterious about Zen…"<cite>— An Introduction to Zen Buddhism</cite></blockquote>
+      <blockquote>"We teach ourselves; Zen merely points the way."<cite>— An Introduction to Zen Buddhism</cite></blockquote>
+      <blockquote>"Zen perceives and feels, and does not abstract and meditate."<cite>— An Introduction to Zen Buddhism</cite></blockquote>
+      <blockquote>"Emptiness which is conceptually liable to be mistaken for sheer nothingness is in fact the reservoir…"<cite>— D.T. Suzuki</cite></blockquote>
+    </article>
+
+    <article class="teacher" id="nagarjuna">
+      <h3>Nāgārjuna</h3><span class="teacher-dates">c. 150 – 250 CE</span>
+      <span class="teacher-tradition mono">Madhyamaka · India</span>
+      <!-- TODO: bio truncated when read — copy the rest from the live site. -->
+      <p>A second-century Indian philosopher and founder of the Madhyamaka, or "Middle Way," school of…</p>
+      <blockquote>"Neither from itself nor from another, nor from both, nor without a cause, does anything whatever, anywhere arise."<cite>— Mūlamadhyamakakārikā</cite></blockquote>
+      <blockquote>"Whatever is dependently co-arisen, that is explained to be emptiness. That, being a dependent designation…"<cite>— Mūlamadhyamakakārikā, Ch. 24</cite></blockquote>
+      <blockquote>"Since all is empty, all is possible."<cite>— Mūlamadhyamakakārikā</cite></blockquote>
+      <blockquote>"Without recourse to the conventional, the ultimate cannot be shown."<cite>— Mūlamadhyamakakārikā</cite></blockquote>
+    </article>
+
+    <article class="teacher" id="osho">
+      <h3>Osho</h3><span class="teacher-dates">1931 – 1990</span>
+      <span class="teacher-tradition mono">Contemporary mysticism · India</span>
+      <!-- TODO: bio truncated when read — copy the rest from the live site. -->
+      <p>An Indian mystic and teacher who built his work around meditation as immediate experience rather…</p>
+      <blockquote>"Meditation means to be in non-doing. Meditation is not a doing but a state of being."<cite>— Osho</cite></blockquote>
+      <blockquote>"You just be a watcher, and the miracle of watching is meditation."<cite>— Osho, on witnessing</cite></blockquote>
+      <blockquote>"As you watch, slowly mind becomes empty of thoughts; but you are not falling asleep, you are becoming…"<cite>— Osho, on witnessing</cite></blockquote>
+      <blockquote>"Mind cannot do anything about meditation. Mind is the absence of meditation."<cite>— Osho</cite></blockquote>
+      <blockquote>"There is no bigger lie than death. And yet, death appears to be true."<cite>— Osho, And Now and Here</cite></blockquote>
+    </article>
+
+    <article class="teacher" id="tolle">
+      <h3>Eckhart Tolle</h3><span class="teacher-dates">b. 1948</span>
+      <span class="teacher-tradition mono">Presence teaching · Germany / Canada</span>
+      <p>A contemporary teacher whose book <em>The Power of Now</em> reframed enlightenment as something available this instant, not earned through years of practice. His core claim: nearly all suffering comes from compulsive thinking and identification with the mind — presence, not belief, is the way out.</p>
+      <blockquote>"Realize deeply that the present moment is all you have. Make the Now the primary focus of your life."<cite>— The Power of Now</cite></blockquote>
+      <blockquote>"The mind always seeks to deny the Now and to escape from it. The more you are identified with your mind, the more you suffer."<cite>— The Power of Now</cite></blockquote>
+      <blockquote>"Nothing has happened in the past; it happened in the Now. Nothing will ever happen in the future; it will happen in the Now."<cite>— The Power of Now</cite></blockquote>
+      <blockquote>"Focus attention on the feeling inside you. Become aware not only of the emotional pain but also of 'the one who observes' — the silent watcher."<cite>— The Power of Now</cite></blockquote>
+    </article>
+  </section>
+
+  <section id="reflections">
+    <span class="eyebrow mono">Part Two</span>
+    <h2>Reflections</h2>
+    <p class="teacher-intro">Notes from my own sitting practice — not teaching, just tracking what actually happens when I sit.</p>
+
+    <!-- TODO: each entry below was truncated when read from the live site — copy the full text
+         from https://findingtheself.app/#reflections and replace. Dates shown are real. -->
+
+    <article class="reflection">
+      <div class="meta mono">1 Sept 2026 · Witnessing</div>
+      <h3>Day Eight – Witnessing</h3>
+      <p>When you think about it there is little we do as life and universe unfolds in front of us, all predetermined…</p>
+    </article>
+    <article class="reflection">
+      <div class="meta mono">31 Aug 2026 · The Indweller</div>
+      <h3>Day Five, Six, Seven</h3>
+      <p>The last couple of days have been about simply sitting — understanding the Self, bowing down to the…</p>
+    </article>
+    <article class="reflection">
+      <div class="meta mono">28 Aug 2026 · 15 mins · The Self</div>
+      <h3>Day Four – The Indweller with I Bow to Thee</h3>
+      <p>I sat in silence and felt light — saw the light — when I closed my eyes. A feeling came that I am not…</p>
+    </article>
+    <article class="reflection">
+      <div class="meta mono">27 Aug 2026 · 15 mins · Emptiness</div>
+      <h3>Day Three – Who Is Meditating?</h3>
+      <p>Sitting in meditation today, concentrating on the Agni Chakra, I noticed the body felt like it wasn't…</p>
+    </article>
+    <article class="reflection">
+      <div class="meta mono">26 Aug 2026 · 30 mins · Witnessing</div>
+      <h3>Day Two – Walking Meditation</h3>
+      <p>Actually noticing the steps I take, the path I walk down — trying to hold a cleared mind. It's hard…</p>
+    </article>
+    <article class="reflection">
+      <div class="meta mono">25 Aug 2026 · 15 mins · Breath Awareness</div>
+      <h3>Day One – Just Sitting</h3>
+      <p>First real sit in a while. Mostly noticing how loud the mind is in the first five minutes — the to-do…</p>
+    </article>
+    <p class="reflection-note">next entry, whenever it's written</p>
+  </section>
+
+  <section id="journal">
+    <span class="eyebrow mono">Try it yourself</span>
+    <h2>Your Journey to the Self</h2>
+    <p>Reading about presence and self-inquiry is one thing — sitting with it, daily, is another. The companion journal gives you a daily prompt, a self-inquiry practice, and a private place to write.</p>
+    <div class="journey-cta">
+      <a class="btn" href="https://journal.findingtheself.app/">Open the Journal →</a>
+      <p class="fine">Free to use. Your entries stay private to your own account.</p>
+    </div>
+  </section>
+
+  <section id="inspire">
+    <span class="eyebrow mono">Stay with it</span>
+    <h2>Daily Inspiration</h2>
+    <p>One quote and one small meditation to try, drawn from the seven voices — delivered to your inbox each morning.</p>
+    <!-- TODO: this form has no backend wired up in this reconstruction. The live site presumably
+         posts to an email list provider — connect that here (or to Supabase, same as the journal). -->
+    <form class="subscribe-form" onsubmit="return false;">
+      <label for="email" class="visually-hidden" style="position:absolute; left:-9999px;">Email address</label>
+      <input id="email" type="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Quotes are drawn from published translations and talks and are attributed to their original sources.</p>
+  <p class="closing">Who am I, really — and what's asking?</p>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('inspiration-toggle');
+    var menu = document.getElementById('inspiration-menu');
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
