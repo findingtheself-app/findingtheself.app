@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Finding the Self — A journal on self-realization</title>
+<title>Finding the .Self — A journal on self-realization</title>
 <meta name="description" content="Seven teachers, seven roads, one thread: presence. A personal site on self-realization, with a companion journal app.">
 
 <!--
@@ -73,6 +73,7 @@
   }
 
   em { color: var(--seal); font-style: italic; }
+  .dot { color: var(--seal); }
 
   a { color: var(--seal); }
   a:focus-visible, button:focus-visible, input:focus-visible {
@@ -117,6 +118,11 @@
     padding: 8px 10px; border-radius: 4px;
   }
   .rail-links a:hover, .rail-links button.rail-dropdown-toggle:hover { color: var(--ink); background: var(--paper-raised); }
+  .self-lockup { display: inline-flex; align-items: center; gap: 6px; }
+  .self-lockup .lk-names { white-space: nowrap; }
+  .self-lockup svg { flex-shrink: 0; display: block; }
+  .self-lockup .lk-mark { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 600; font-size: 14px; color: var(--seal); letter-spacing: 0; text-transform: none; }
+  .self-lockup .lk-mark .dot { font-style: normal; }
 
   .rail-dropdown { position: relative; }
   .inspiration-menu {
@@ -135,6 +141,14 @@
   .hero h1 { font-size: 52px; margin-bottom: 28px; }
   .hero p { font-size: 18px; color: var(--ink); margin: 0 0 22px; }
   .hero .caption { margin-top: 32px; color: var(--ink-soft); }
+
+  .hero .manifesto { font-size: 44px; line-height: 1.15; margin-bottom: 6px; }
+  .hero-lockup { display: inline-flex; align-items: center; margin: 28px 0 40px; }
+  .hero-lockup .names { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; height: 84px; font-family: "Cormorant Garamond", serif; font-size: 16px; color: var(--ink-soft); }
+  .hero-lockup svg { flex-shrink: 0; display: block; }
+  .hero-lockup .self-mark { font-family: "Cormorant Garamond", serif; font-size: 26px; font-weight: 600; color: var(--ink); margin-left: 2px; }
+  .hero-lockup .self-mark .dot { color: var(--seal); }
+  .hero-lockup .self-mark em { color: var(--seal); font-style: italic; }
 
   section { padding: 64px 0; border-top: 1px solid var(--line); }
   section .eyebrow { text-align: left; }
@@ -198,7 +212,7 @@
 
 <header class="rail">
   <div class="rail-inner">
-    <span class="rail-mark">Finding the <em>Self</em></span>
+    <span class="rail-mark">Finding the <span class="dot">.</span><em>Self</em></span>
     <nav class="rail-links" aria-label="Primary">
       <a href="#about">About</a>
       <a href="#master">My Master</a>
@@ -216,15 +230,24 @@
       </div>
       <a href="reflections/index.html">Reflections</a>
       <a href="#journal">Journal App</a>
-      <a href="self-system.html">.Self</a>
+      <a class="self-lockup" href="self-system.html" aria-label="The .Self system — Finding the .Self, Witness.Self, and Reflect.Self">
+        <span class="lk-names">Finding · Witness · Reflect</span>
+        <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0,1 L8,6 M0,6 L8,6 M0,11 L8,6 M8,6 L16,6" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>
+        <span class="lk-mark"><span class="dot">.</span>Self</span>
+      </a>
       <a href="#inspire">Daily Email</a>
     </nav>
   </div>
 </header>
 
 <header class="hero">
-  <span class="eyebrow mono">A journal on self-realization</span>
-  <h1>Finding the <em>Self</em></h1>
+  <span class="eyebrow mono">Why this exists</span>
+  <h1 class="manifesto">Not a wellness brand.<br>A way of paying it forward.</h1>
+  <div class="hero-lockup" role="img" aria-label="The .Self system: Finding the .Self, Witness.Self, and Reflect.Self">
+    <div class="names" aria-hidden="true"><span>Finding the</span><span>Witness the</span><span>Reflect the</span></div>
+    <svg width="70" height="84" viewBox="0 0 70 84" aria-hidden="true"><path d="M0,11 L35,42 M0,42 L35,42 M0,73 L35,42 M35,42 L70,42" fill="none" stroke="var(--seal)" stroke-width="1.3"/></svg>
+    <div class="self-mark" aria-hidden="true"><span class="dot">.</span><em>Self</em></div>
+  </div>
   <p>Every tradition gathered here starts from the same suspicion: that the person you take yourself to be — this name, this history, this bundle of wants — is not the whole story. Self-realization isn't a reward for years of discipline, and it isn't a feeling to chase. It's what's left when you stop mistaking the mind's noise for who's making it.</p>
   <p>The thread running through all of it is presence: watching the mind's clutter instead of being run by it, staying with what's actually here instead of the story about it. Do that seriously enough, for long enough — keep asking who's aware of this — and the sense of being a separate someone doesn't need to be fought off. It just stops holding together on its own.</p>
   <p>Seven teachers, seven roads — inquiry, silence, philosophy, wit — all pointing the same direction: inward, and then further in, until there's no one left standing between you and what's looking.</p>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Witness.Self — Finding the Self</title>
+<title>Witness.Self — Finding the .Self</title>
 <meta name="description" content="A quiet timer for sitting practice, guided by five witnessing teachers — Osho, Nāgārjuna, Bodhidharma, Ashtavakra, and Kali. Part of the .Self system.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +87,7 @@
   h1.title { font-family: var(--font-display); font-size: 2.4rem; margin: 0 0 6px; text-wrap: balance; }
   .tagline { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--seal); max-width: 340px; margin: 0 0 18px; line-height: 1.5; }
   .desc { font-size: 0.98rem; line-height: 1.65; color: var(--ink-soft); max-width: 340px; margin: 0 0 30px; }
+  .welcome-eyebrow { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--seal); margin: 0 0 10px; }
   .days-tally {
     font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--ink-soft); margin: 0 0 18px;
@@ -197,6 +198,11 @@
     font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--ink-faint); padding: 0 24px 16px; margin-top: -8px;
   }
+  .brand-sub.self-lockup { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; }
+  .brand-sub.self-lockup .lk-names { white-space: nowrap; }
+  .brand-sub.self-lockup svg { flex-shrink: 0; display: block; }
+  .brand-sub.self-lockup .lk-mark { font-family: var(--font-display); font-style: italic; font-weight: 600; font-size: 0.78rem; color: var(--seal); text-transform: none; letter-spacing: 0; }
+  .brand-sub.self-lockup .lk-mark .dot { font-style: normal; }
   footer.app-footer {
     max-width: 460px; margin: 0 auto; padding: 20px 24px 40px; border-top: 1px solid var(--line);
     color: var(--ink-faint); font-size: 12px; text-align: center;
@@ -211,7 +217,11 @@
   <div class="brand-header">
     <span class="name">Witness<span class="dot">.</span><em>Self</em></span>
   </div>
-  <div class="brand-sub mono">part of finding the self</div>
+  <a class="brand-sub self-lockup mono" href="https://findingtheself.app/self-system.html" aria-label="Part of the .Self system — Finding the .Self, Witness.Self, and Reflect.Self">
+    <span class="lk-names">Finding · Witness · Reflect</span>
+    <svg width="13" height="10" viewBox="0 0 13 10" aria-hidden="true"><path d="M0,1 L6,5 M0,5 L6,5 M0,9 L6,5 M6,5 L13,5" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+    <span class="lk-mark"><span class="dot">.</span>Self</span>
+  </a>
 
   <!-- WELCOME -->
   <section id="screen-welcome" class="screen active">
@@ -219,9 +229,10 @@
     <div class="enso-wrap">
       <svg viewBox="0 0 100 100"><path class="enso-stroke" d="M 50 12 A 38 38 0 1 1 15 55" pathLength="300" /></svg>
     </div>
+    <span class="welcome-eyebrow">Recognition, not relaxation</span>
     <h1 class="title">Witness</h1>
     <p class="tagline" id="welcome-tagline">&ldquo;You just be a watcher, and the miracle of watching is meditation.&rdquo; &mdash; Osho</p>
-    <p class="desc" id="welcome-desc">A quiet place to sit, guided by four voices — Osho, N&#257;g&#257;rjuna, Bodhidharma, and Ashtavakra — each pointing at the same thing: you are not the mind. You are the one watching it.</p>
+    <p class="desc" id="welcome-desc">A quiet place to sit, guided by five voices — Osho, N&#257;g&#257;rjuna, Bodhidharma, Ashtavakra, and Kali — each pointing at the same thing: you are not the mind. You are the one watching it.</p>
     <p class="days-tally mono" id="welcome-days-tally" hidden><b id="welcome-days-count">0</b> days you've sat, in total</p>
     <div class="welcome-actions">
       <button class="primary" id="btn-quick-start">Begin</button>
@@ -329,11 +340,11 @@
     <button class="primary" id="btn-again">Sit Again</button>
     <div class="top-spacer"></div>
   </section>
-</div>
 
-<footer class="app-footer">
-  <p>Witness.Self is part of <a href="https://findingtheself.app/self-system.html">the .Self system</a> — <em>pratyabhijñā</em>, recognizing the one who was always watching.</p>
-</footer>
+  <footer class="app-footer">
+    <p>Witness.Self is part of <a href="https://findingtheself.app/self-system.html">the .Self system</a> — <em>pratyabhijñā</em>, recognizing the one who was always watching.</p>
+  </footer>
+</div>
 
 <script>
 (function () {

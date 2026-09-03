@@ -24,6 +24,7 @@ body {
 }
 h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; margin: 0; text-wrap: balance; }
 em { color: var(--seal); font-style: italic; }
+.dot { color: var(--seal); }
 a { color: var(--seal); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
 .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.06em; }
@@ -56,6 +57,13 @@ main { max-width: 680px; margin: 0 auto; padding: 48px 32px 80px; }
 .hero .eyebrow { text-align: center; }
 .hero h1 { font-size: 44px; margin-bottom: 20px; }
 .hero .lede { color: var(--ink-soft); font-size: 18px; max-width: 520px; margin: 0 auto; }
+
+.hero-lockup { display: inline-flex; align-items: center; margin: 4px 0 32px; }
+.hero-lockup .names { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; height: 78px; font-family: "Cormorant Garamond", serif; font-size: 15px; color: var(--ink-soft); }
+.hero-lockup svg { flex-shrink: 0; display: block; }
+.hero-lockup .self-mark { font-family: "Cormorant Garamond", serif; font-size: 24px; font-weight: 600; color: var(--ink); margin-left: 2px; }
+.hero-lockup .self-mark .dot { color: var(--seal); }
+.hero-lockup .self-mark em { color: var(--seal); font-style: italic; }
 
 .divider { border: none; border-top: 1px solid var(--line); margin: 56px 0; }
 

@@ -24,6 +24,7 @@ body {
 }
 h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; margin: 0; text-wrap: balance; }
 em { color: var(--seal); font-style: italic; }
+.dot { color: var(--seal); }
 a { color: var(--seal); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
 .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.06em; }

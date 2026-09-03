@@ -1,4 +1,4 @@
-# Finding the Self
+# Finding the .Self
 
 Source for [findingtheself.app](https://findingtheself.app) (this folder) and
 [journal.findingtheself.app](https://journal.findingtheself.app) (`/journal`).
@@ -81,13 +81,65 @@ phrasing is still live at findingtheself.app to restore from.
 ## The .Self system (new)
 
 `self-system.html` (+ `self-system.css`) is a new concept page introducing the unifying brand
-across all three products: **Finding the Self** (this blog), **Witness.Self** (the meditation app,
+across all three products: **Finding the .Self** (this blog), **Witness.Self** (the meditation app,
 not built yet — the card links nowhere on purpose and says so), and **Reflect.Self** (the journal,
 linking to `journal/index.html`). It explains the shared ethos — witnessing/recognition, grounded
 in the Kashmir Shaivism (Trika) tradition specifically (pratyabhijñā, spanda, vimarśa) rather than
 generic "mindfulness" — and is linked from the main nav as **.Self**. Same design tokens and type
 system as the rest of the site; no new patterns invented. This is a first-pass concept page, not a
 rebuild of the meditation app or journal themselves — those are separate, bigger jobs.
+
+**Update: the blog's own name now carries the mark too.** Every place the site displayed "Finding
+the Self" — the homepage `<title>`, the sticky-nav wordmark, the homepage hero `<h1>`, the other
+pages' `<title>` tags, and this README — now reads **Finding the .Self**, so all three products
+share one wordmark family (`Witness.Self`, `Reflect.Self`, `Finding the .Self`). The nav and hero
+instances use the same seal-colored `.dot` span the journal and Witness.Self already use for their
+own wordmarks (`.dot { color: var(--seal); }`, added to `index.html`'s inline styles, `self-system
+.css`, and `reflections/reflections.css`); references to the blog's name inside `self-system.html`'s
+body copy and card, and in this README, stay plain text to match how the other two products are
+already referenced there. The domain itself — `findingtheself.app` — is unchanged; this is a display
+wordmark change only.
+
+## Homepages now open with the manifesto statement from the pitch decks
+
+At the user's request to take the deck's look "further" onto the real pages, the blog homepage
+(`index.html`) and `self-system.html` now open with the same layout as the ethos deck's cover
+slide: a small mono eyebrow, a bold two-line declarative statement, then the lockup mark — instead
+of leading with the wordmark alone. `index.html`'s hero now opens with **"Not a wellness brand. A
+way of paying it forward."** (the line from the ethos deck) under the eyebrow "Why this exists,"
+with the full vertical lockup graphic (a larger version of the header mark below) right after it;
+all the existing explanatory paragraphs stay, unchanged, right below. `self-system.html` keeps its
+existing "One house. Three rooms." headline and adds the same lockup graphic beneath it. Both
+lockups use `role="img"` with a proper `aria-label` rather than exposing the three-line text
+straight to screen readers, since read literally in DOM order ("Finding the… Witness the… Reflect
+the… .Self") it doesn't parse as a sentence.
+
+Witness.Self's welcome screen got a lighter version of the same touch: a small eyebrow line
+("Recognition, not relaxation") above the "Witness" heading. While in there, fixed a real content
+bug found along the way — the welcome description said "guided by four voices" and listed only
+four teachers, when there are five (Kali was missing from the sentence, though always present in
+the actual practice). Also fixed a real **layout bug**, unrelated to this pass but caught while
+checking a full-page screenshot: `footer.app-footer` was closing outside `.app`'s wrapping `<div>`,
+which made it a flex sibling of `.app` under `body`'s row-flex layout — so it rendered pinned to
+the top-right of the page instead of at the bottom. Moved the footer back inside `.app`, after the
+last screen section; it now sits correctly below the visible screen, as originally intended.
+
+Reflect.Self (`journal/index.html`) was deliberately left alone beyond the header mark added
+earlier — its screens are already tight, one-job-per-screen, and adding a big manifesto statement
+there would work against the "uncluttered sanctuary" standard the rest of the app already meets
+well; its own short intro lines ("Notice what's here, then put it into words.", "you're not the
+weather. you're the sky.") already carry the same voice.
+
+## The three products now carry a shared "lockup" mark in their headers
+
+A small graphic — **Finding · Witness · Reflect** converging on a short line into **.Self** — now
+appears in the header of all three products: the blog's main nav (replacing the plain `.Self` text
+link), the journal's header (replacing the "part of finding the self" subline), and Witness.Self's
+header (same). It's a compact, single-line adaptation of a mark built for a pitch deck, sized to fit
+existing header heights without adding a mobile-nav problem on top of the one already flagged in the
+audit. Each one links to `self-system.html`. New CSS class: `.self-lockup` (+ `.lk-names` / `.lk-mark`
+inside it), defined locally in each file rather than shared, since the three headers don't share a
+stylesheet.
 
 ## The journal, renamed and refined to Reflect.Self
 
