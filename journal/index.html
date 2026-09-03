@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Finding the Self — Journal</title>
+<title>Reflect.Self — Finding the Self</title>
 
 <!--
   NOTE ON THIS FILE
@@ -14,6 +14,11 @@
   URL or key was available to this session. To keep this shell useful on its own, entries/traits
   save to the browser's localStorage instead — every "TODO: Supabase" comment below marks where
   real persistence should replace that once you connect your Supabase project.
+
+  REBRAND PASS: renamed in-UI to Reflect.Self (the journal's name in the .Self system —
+  see /self-system.html) and refined copy throughout so the app reads as witnessing/noticing
+  practice, not generic self-improvement tracking. Nothing structural changed — same four
+  screens, same data model, same TODO: Supabase markers.
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,8 +59,11 @@
   }
   .wordmark { font-family: "Cormorant Garamond", serif; font-size: 19px; }
   .wordmark em { color: var(--seal); font-style: italic; }
-  .streak { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-soft); }
+  .wordmark .dot { color: var(--seal); }
+  .wordmark-sub { font-size: 9.5px; color: var(--ink-soft); margin-top: 3px; }
+  .streak { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-soft); text-align: right; }
   .streak b { color: var(--seal); }
+  .screen-intro { color: var(--ink-soft); font-size: 15px; margin: -4px 0 20px; }
 
   .cloud-header {
     max-width: 640px; margin: 0 auto 18px; height: 130px; border-radius: 4px; overflow: hidden;
@@ -137,22 +145,33 @@
   }
   nav.tabbar button.active { color: var(--seal); }
   nav.tabbar .glyph { font-size: 16px; line-height: 1; }
+
+  footer.app-footer {
+    max-width: 640px; margin: 36px auto 0; padding: 20px 24px 0; border-top: 1px solid var(--line);
+    color: var(--ink-faint); font-size: 12px; text-align: center;
+  }
+  footer.app-footer a { color: var(--ink-faint); text-decoration: underline; }
+  footer.app-footer em { color: var(--seal); font-style: italic; }
 </style>
 </head>
 <body>
 
 <header class="top">
-  <div class="wordmark">Finding the <em>Self</em></div>
-  <div class="streak"><b id="streakCount">0</b> day streak</div>
+  <div>
+    <div class="wordmark">Reflect<span class="dot">.</span><em>Self</em></div>
+    <div class="wordmark-sub mono">part of finding the self</div>
+  </div>
+  <div class="streak"><b id="streakCount">0</b> days of watching</div>
 </header>
 
-<div class="cloud-header"><span>write to begin clearing the sky</span></div>
+<div class="cloud-header"><span>you're not the weather. you're the sky.</span></div>
 
 <main>
 
   <!-- ===== WRITE ===== -->
   <section class="screen active" id="screen-write">
     <div class="section-label">Today</div>
+    <p class="screen-intro">Notice what's here, then put it into words.</p>
     <div class="prompt-card">
       <div class="q" id="writePrompt">"What is the silence underneath this thought?"</div>
       <button class="another" type="button" id="anotherPromptBtn">↻ Another prompt</button>
@@ -173,7 +192,7 @@
   <section class="screen" id="screen-inquiry">
     <div class="section-label">Self-Inquiry</div>
     <h2 style="font-size:26px; margin-bottom:14px;">Who am I?</h2>
-    <p style="color:var(--ink-soft); margin-bottom:20px;">Ramana Maharshi's practice, and the old Vedantic method behind it — <em style="color:var(--seal); font-style:italic;">neti neti</em>, "not this, not this." You're not looking for a clever answer. You keep discarding what you're not, one thing at a time, until only the asking is left.</p>
+    <p style="color:var(--ink-soft); margin-bottom:20px;">Ramana Maharshi's practice, and the old Vedantic method behind it — <em style="color:var(--seal); font-style:italic;">neti neti</em>, "not this, not this." You're not looking for a clever answer. You keep discarding what you're not, one thing at a time, until only the asking is left — and whatever's left is what was watching all along.</p>
 
     <div class="prompt-card">
       <div class="inquiry-counter mono" id="inquiryCounter">1 of 10</div>
@@ -193,7 +212,7 @@
   <!-- ===== JOURNAL ===== -->
   <section class="screen" id="screen-journal">
     <div class="section-label">Patterns</div>
-    <p style="color:var(--ink-soft); margin-bottom:24px;">Tag a characteristic in an entry and it will show up here.</p>
+    <p style="color:var(--ink-soft); margin-bottom:24px;">Not a scoreboard — a record of what you've actually noticed. Tag a characteristic in an entry and it collects here, so you can watch what keeps showing up without needing to fix it yet.</p>
 
     <div class="section-label">Entries</div>
     <div id="entriesList">
@@ -207,10 +226,15 @@
   <!-- ===== TRAITS ===== -->
   <section class="screen" id="screen-traits">
     <div class="section-label">Characteristics &amp; Pointers</div>
+    <p style="color:var(--ink-soft); font-size:15px; margin-bottom:20px;">These aren't flaws to fix. Each one is a pattern worth watching — the question beside it is there to help you notice it a little sooner next time.</p>
     <div id="traitsList"></div>
   </section>
 
 </main>
+
+<footer class="app-footer">
+  <p>Reflect.Self is part of <a href="https://findingtheself.app/self-system.html">the .Self system</a> — journaling as <em>vimarśa</em>, awareness reflecting on itself.</p>
+</footer>
 
 <nav class="tabbar" aria-label="Journal sections">
   <button class="tab active" data-screen="write" type="button"><span class="glyph">✎</span>Write</button>
@@ -245,7 +269,8 @@
     "What is the silence underneath this thought?",
     "What are you avoiding looking at right now?",
     "If no one were watching, what would you say?",
-    "What's asking the question \"who am I\"?"
+    "What's asking the question \"who am I\"?",
+    "What noticed this, before you had a word for it?"
   ];
 
   var INQUIRY_QUESTIONS = [
@@ -283,8 +308,21 @@
     });
   });
 
-  // ---- Streak (TODO: Supabase — derive from real entry dates) ----
-  document.getElementById('streakCount').textContent = load('fts_streak', 0);
+  // ---- Days watched ----
+  // A total count of distinct days you've shown up — not a consecutive-day streak.
+  // Missing a day doesn't cost you anything; there's nothing here to break.
+  // TODO: Supabase — once entries/reflections live in Supabase, do this as a
+  // COUNT(DISTINCT date_trunc('day', created_at)) query instead of scanning localStorage.
+  function daysWatchedCount() {
+    var days = new Set();
+    load('fts_entries', []).forEach(function (e) { days.add(new Date(e.date).toDateString()); });
+    load('fts_reflections', []).forEach(function (r) { days.add(new Date(r.date).toDateString()); });
+    return days.size;
+  }
+  function renderDaysWatched() {
+    document.getElementById('streakCount').textContent = daysWatchedCount();
+  }
+  renderDaysWatched();
 
   // ---- Write screen ----
   var chipRow = document.getElementById('writeChips');
@@ -311,9 +349,7 @@
     var entries = load('fts_entries', []);
     entries.unshift({ date: new Date().toISOString(), text: text, tags: Array.from(selectedChips) });
     save('fts_entries', entries);
-    var streak = load('fts_streak', 0) + 1; // TODO: Supabase — real streak logic (consecutive days), not just increment
-    save('fts_streak', streak);
-    document.getElementById('streakCount').textContent = streak;
+    renderDaysWatched();
     document.getElementById('writeEntry').value = '';
     selectedChips.clear();
     chipRow.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('selected'); });
@@ -334,6 +370,7 @@
     var reflections = load('fts_reflections', []);
     reflections.unshift({ date: new Date().toISOString(), question: INQUIRY_QUESTIONS[inquiryIndex], text: text });
     save('fts_reflections', reflections);
+    renderDaysWatched();
     document.getElementById('inquiryReflection').value = '';
   });
   renderInquiry();

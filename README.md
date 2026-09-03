@@ -14,7 +14,9 @@ the site's own CSS custom properties (colour/type tokens), read with browser aut
 That means:
 - The **content is real** — copy, quotes, structure all pulled from the live pages, not invented.
 - A handful of paragraphs (marked `<!-- TODO -->` in `index.html`) were cut off mid-sentence when
-  read and need to be completed by copying the rest from the live site.
+  read and need to be completed by copying the rest from the live site. (The 6 Reflections entries
+  had this same issue and have since been fixed — see below. What's left is in `index.html`: the
+  About/My Master section and a few of the 7 teacher bios.)
 - **Two images are missing**: `about-sandeep.jpg` and `about-master.jpg`. Save them from
   `findingtheself.app/about-sandeep.jpg` and `findingtheself.app/about-master.jpg` and drop them in
   this folder (same filenames) before deploying.
@@ -68,6 +70,40 @@ homepage's Reflections section is now a short teaser (latest 3) linking to `refl
 instead of dumping all 6 entries inline. This is what makes the blog actually shareable and
 indexable — each entry can now be linked to directly, and searched for directly, instead of only
 existing as a scroll-position on the homepage.
+
+**All 6 entry bodies are now complete** — the `<!-- TODO -->` placeholders that were cut off
+mid-sentence have been replaced with the real text, pulled directly from the live site's
+`#reflections` section (not rewritten). One small copyedit: Day Eight's text had a couple of minor
+grammar slips on the live site ("When you think about there is little...", a missing "it"); those
+were smoothed out here without changing anything he said. If that wasn't wanted, the original
+phrasing is still live at findingtheself.app to restore from.
+
+## The .Self system (new)
+
+`self-system.html` (+ `self-system.css`) is a new concept page introducing the unifying brand
+across all three products: **Finding the Self** (this blog), **Witness.Self** (the meditation app,
+not built yet — the card links nowhere on purpose and says so), and **Reflect.Self** (the journal,
+linking to `journal/index.html`). It explains the shared ethos — witnessing/recognition, grounded
+in the Kashmir Shaivism (Trika) tradition specifically (pratyabhijñā, spanda, vimarśa) rather than
+generic "mindfulness" — and is linked from the main nav as **.Self**. Same design tokens and type
+system as the rest of the site; no new patterns invented. This is a first-pass concept page, not a
+rebuild of the meditation app or journal themselves — those are separate, bigger jobs.
+
+## The journal, renamed and refined to Reflect.Self
+
+`journal/index.html` is now branded as **Reflect.Self** in the UI (wordmark, tab, and a footer
+line back to `self-system.html`), and its copy was refined throughout so it reads as a witnessing
+practice rather than generic self-improvement tracking — the cloud header, the Write/Inquiry/
+Patterns/Traits intro lines, and one new prompt all now name noticing/watching directly instead of
+implying it. No structural or data changes: same four screens, same `TRAITS`/`WRITE_PROMPTS`/
+`INQUIRY_QUESTIONS` arrays (one prompt added), same `TODO: Supabase` markers, same localStorage
+fallback. Streak language softened from "day streak" to "days of watching" to match the ethos — and then,
+on a follow-up pass, the mechanic itself changed, not just the wording: it's no longer a
+consecutive-day streak (which resets to zero and creates the "don't break the chain" pressure
+streaks are designed around). It's now a plain count of distinct days you've actually written an
+entry or saved a self-inquiry reflection, derived from the real data each time rather than a
+separately incremented counter. Missing a day costs nothing — there's no chain to break, just a
+number that goes up when you show up.
 
 ## Getting this into GitHub (you're new to this — here's the short version)
 
