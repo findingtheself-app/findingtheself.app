@@ -105,6 +105,38 @@ entry or saved a self-inquiry reflection, derived from the real data each time r
 separately incremented counter. Missing a day costs nothing — there's no chain to break, just a
 number that goes up when you show up.
 
+## Witness.Self is now real (not a concept card)
+
+`witness/index.html` is a full, working sitting-practice app — recovered from an existing Claude
+artifact called "Witness" (built the day before this repo's rebuild, previously unopened) rather
+than built from scratch. It was already far more complete than a first pass would have been: a
+welcome screen, a setup screen (duration, posture — sitting/walking/standing/lying, and a choice of
+five witnessing teachers), a session screen with a breathing ensō animation and a countdown that
+**stays hidden by default and only reveals itself on tap** (a watched clock works against the whole
+point of sitting — that restraint was already built in), and a completion screen. Guidance is
+spoken aloud via pre-recorded audio clips with a live speech-synthesis fallback, and a soft ambient
+layer (bell, cloud-clearing tone, Om chant, high tones) is synthesized live with the Web Audio API —
+no external audio files, no backend, nothing to wire up. All five techniques are grounded in real
+teachers: Osho (witnessing), Nāgārjuna (emptiness), Bodhidharma (wall-gazing), Ashtavakra (I am the
+witness), and Kali (energy and space) — verbatim voice-over scripts already written for each, with
+posture-aware variants.
+
+The only change made this pass was branding: the header now reads **Witness.Self** with a "part of
+finding the self" subline (matching Reflect.Self's wordmark treatment), and a footer link back to
+`self-system.html` naming *pratyabhijñā*. No functional code was touched. `self-system.html`'s
+product card now links to it instead of showing "in progress."
+
+**Update: Witness.Self now counts days too.** Same mechanic as Reflect.Self, on purpose — a plain,
+non-resetting count of the distinct calendar days you've sat, stored as a short list of completion
+timestamps in `localStorage` (`witness-sessions-log`) and reduced to a distinct-day count the same
+way `daysWatchedCount()` does in the journal. No minimum length to "qualify" a sit, and ending early
+still counts — showing up is the point, not finishing. It shows as "**N** days you've sat, in total"
+on the completion screen, and quietly on the welcome screen too once it's above zero (hidden for
+first-time visitors, since a "0 days" line has nothing to say). Sitting twice in the same day still
+only counts as one day — same as journaling and self-inquiry both counting as one day of watching in
+Reflect.Self. Smoke-tested end to end with Playwright (singular/plural text, persistence across a
+reload, same-day sits not double-counting).
+
 ## Getting this into GitHub (you're new to this — here's the short version)
 
 1. On [github.com](https://github.com), click **New repository**. Name it (e.g. `findingtheself-app`), leave it empty (no README/license), and create it.
