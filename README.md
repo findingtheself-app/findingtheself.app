@@ -15,11 +15,15 @@ That means:
 - The **content is real** — copy, quotes, structure all pulled from the live pages, not invented.
 - A handful of paragraphs (marked `<!-- TODO -->` in `index.html`) were cut off mid-sentence when
   read and need to be completed by copying the rest from the live site. (The 6 Reflections entries
-  had this same issue and have since been fixed — see below. What's left is in `index.html`: the
-  About/My Master section and a few of the 7 teacher bios.)
-- **Two images are missing**: `about-sandeep.jpg` and `about-master.jpg`. Save them from
-  `findingtheself.app/about-sandeep.jpg` and `findingtheself.app/about-master.jpg` and drop them in
-  this folder (same filenames) before deploying.
+  had this same issue and have since been fixed — see below. **The My Master paragraph is now fixed
+  too** — Sandeep sent the missing sentence and the full Guru Gita verse + translation on 3 Sept
+  2026, replacing the truncated version. What's left is a few of the 7 teacher bios: Bodhidharma and
+  D.T. Suzuki still cut off mid-sentence.)
+- **Update: the two missing photos are in.** `about-sandeep.jpg` (the Barong mask ceremony selfie)
+  and `about-master.jpg` (with Maitreya Prema at the temple entrance) were added on 3 Sept 2026 —
+  Sandeep sent the originals, they've been auto-rotated (their EXIF orientation was sideways) and
+  downsized for web (max 1400px wide, ~85% JPEG quality) and saved under those exact filenames at
+  the repo root, matching what `index.html` already expected.
 - **The journal's backend isn't wired up.** The live journal uses Supabase (it loads
   `@supabase/supabase-js`) to save entries, track your streak, and store traits. This
   reconstruction uses the browser's local storage instead, just so the shell works out of the box —
@@ -202,7 +206,8 @@ however the site is deployed today.
 
 ## Next steps, in order
 
-1. Fill in the `TODO` content gaps above (truncated paragraphs, two images).
+1. Fill in the remaining `TODO` content gaps above — the Bodhidharma and D.T. Suzuki bios are still
+   truncated. The two images and the My Master paragraph are done.
 2. Wire up Supabase in `journal/index.html` (or share your project URL/anon key and Claude can do it).
 3. Come back to the audit findings and decide what to actually change — the homepage split and the
    mobile nav are the two worth doing first.
