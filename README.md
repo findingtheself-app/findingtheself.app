@@ -14,11 +14,17 @@ the site's own CSS custom properties (colour/type tokens), read with browser aut
 That means:
 - The **content is real** — copy, quotes, structure all pulled from the live pages, not invented.
 - A handful of paragraphs (marked `<!-- TODO -->` in `index.html`) were cut off mid-sentence when
-  read and need to be completed by copying the rest from the live site. (The 6 Reflections entries
+  read and needed to be completed by copying the rest from the live site. (The 6 Reflections entries
   had this same issue and have since been fixed — see below. **The My Master paragraph is now fixed
   too** — Sandeep sent the missing sentence and the full Guru Gita verse + translation on 3 Sept
-  2026, replacing the truncated version. What's left is a few of the 7 teacher bios: Bodhidharma and
-  D.T. Suzuki still cut off mid-sentence.)
+  2026, replacing the truncated version. **Update, 4 Sept 2026: all remaining truncated teacher
+  content is now fixed too** — pulled straight from the live site with WebFetch. That covers the
+  Bodhidharma and D.T. Suzuki bios (both were still marked `TODO`), the Nāgārjuna and Osho bios
+  (found truncated while double-checking, no `TODO` marker on them), and five blockquotes that had
+  been cut off ending in "…" — the Ramana Maharshi, Suzuki (×2), Nāgārjuna, and Osho quotes. There
+  are no more `<!-- TODO -->` content gaps left in `index.html`'s teacher/quote content. The three
+  Reflections excerpts on the homepage still end in "…" by design — they're teaser text linking to
+  the full post, not truncation bugs.)
 - **Update: the two missing photos are in.** `about-sandeep.jpg` (the Barong mask ceremony selfie)
   and `about-master.jpg` (with Maitreya Prema at the temple entrance) were added on 3 Sept 2026 —
   Sandeep sent the originals, they've been auto-rotated (their EXIF orientation was sideways) and
@@ -206,8 +212,8 @@ however the site is deployed today.
 
 ## Next steps, in order
 
-1. Fill in the remaining `TODO` content gaps above — the Bodhidharma and D.T. Suzuki bios are still
-   truncated. The two images and the My Master paragraph are done.
+1. All content gaps are filled in now — the two images, the My Master paragraph, and every
+   truncated teacher bio/quote are done. Nothing left marked `<!-- TODO -->` for content.
 2. Wire up Supabase in `journal/index.html` (or share your project URL/anon key and Claude can do it).
 3. Come back to the audit findings and decide what to actually change — the homepage split and the
    mobile nav are the two worth doing first.
