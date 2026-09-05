@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Witness.Self — Finding the .Self</title>
-<meta name="description" content="A quiet timer for sitting practice, guided by five witnessing teachers — Osho, Nāgārjuna, Bodhidharma, Ashtavakra, and Kali. Part of the .Self system.">
+<meta name="description" content="A quiet timer for sitting practice, guided by six witnessing teachers — Osho, Nāgārjuna, Bodhidharma, Ashtavakra, Kali, and Nisargadatta. Part of the .Self system.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Newsreader:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -232,7 +232,7 @@
     <span class="welcome-eyebrow">Recognition, not relaxation</span>
     <h1 class="title">Witness</h1>
     <p class="tagline" id="welcome-tagline">&ldquo;You just be a watcher, and the miracle of watching is meditation.&rdquo; &mdash; Osho</p>
-    <p class="desc" id="welcome-desc">A quiet place to sit, guided by five voices — Osho, N&#257;g&#257;rjuna, Bodhidharma, Ashtavakra, and Kali — each pointing at the same thing: you are not the mind. You are the one watching it.</p>
+    <p class="desc" id="welcome-desc">A quiet place to sit, guided by six voices — Osho, N&#257;g&#257;rjuna, Bodhidharma, Ashtavakra, Kali, and Nisargadatta — each pointing at the same thing: you are not the mind. You are the one watching it. Sit with that watching long enough and even the witness can be let go — until what's left is simply, plainly, I am.</p>
     <p class="days-tally mono" id="welcome-days-tally" hidden><b id="welcome-days-count">0</b> days you've sat, in total</p>
     <div class="welcome-actions">
       <button class="primary" id="btn-quick-start">Begin</button>
@@ -289,6 +289,10 @@
       <button class="technique-card" data-technique="kali">
         <span class="t-name">Kali</span><span class="t-tag">Energy &amp; Space</span>
         <p>Let form dissolve into the dark, alive space behind it — and find you are that space, simply witnessing.</p>
+      </button>
+      <button class="technique-card" data-technique="nisargadatta">
+        <span class="t-name">Nisargadatta</span><span class="t-tag">Pure Awareness</span>
+        <p>For when watching itself has grown steady — let go of the witness too, and rest as the plain sense "I am," before it becomes "I am this."</p>
       </button>
       <button class="technique-card" data-technique="random">
         <span class="t-name">Surprise Me</span><span class="t-tag">Random each time</span>
@@ -431,12 +435,33 @@
             lying: "Let form return slowly. But you have felt what stands behind it — pure space, pure energy, simply watching, even as you open your eyes."
           } }
       ]
+    },
+    nisargadatta: {
+      label: "Nisargadatta — Pure Awareness",
+      script: [
+        { t: 0.00, line: "You've watched the body, watched the breath, watched the mind. Now stop watching. Just be — with no one standing back to observe it.",
+          byPosture: {
+            walking: "You've watched the steps, watched the body moving. Now stop watching. Just walk, with no one standing back to observe it.",
+            standing: "You've watched the body, standing here. Now stop watching. Just be, with no one standing back to observe it.",
+            lying: "You've watched the body settle. Now stop watching. Just rest, with no one standing back to observe it."
+          } },
+        { t: 0.18, line: "Notice — even the witness is one more thing you can be aware of. Let it drop too. What's left when there's no one watching, and nothing watched?" },
+        { t: 0.38, line: "Don't answer with a thought. Just stay as the plain sense \"I am\" — before it turns into \"I am this\" or \"I am that.\"" },
+        { t: 0.60, line: "This isn't a state you're entering. It's what was here before you sat down, and what will still be here after." },
+        { t: 0.80, line: "No effort left to make — not even the effort of watching. Just this, undivided." },
+        { t: 0.94, line: "There's nowhere to return to. Only a name and a story, waiting to be picked back up. Wear them loosely.", closing: true,
+          byPosture: {
+            walking: "There's nowhere to return to. Only a name and a story, waiting to be picked back up as your steps slow to a stop. Wear them loosely.",
+            standing: "There's nowhere to return to. Only a name and a story, waiting to be picked back up as you begin to move again. Wear them loosely.",
+            lying: "There's nowhere to return to. Only a name and a story, waiting to be picked back up as you open your eyes. Wear them loosely."
+          } }
+      ]
     }
   };
-  var TECHNIQUE_KEYS = ["osho", "nagarjuna", "bodhidharma", "ashtavakra", "kali"];
+  var TECHNIQUE_KEYS = ["osho", "nagarjuna", "bodhidharma", "ashtavakra", "kali", "nisargadatta"];
   var TEACHER_LABELS = {
     osho: "Osho", nagarjuna: "Nāgārjuna", bodhidharma: "Bodhidharma",
-    ashtavakra: "Ashtavakra", kali: "Kali", random: "a surprise voice"
+    ashtavakra: "Ashtavakra", kali: "Kali", nisargadatta: "Nisargadatta", random: "a surprise voice"
   };
 
   // ---- posture: the four traditional Zen "dignities" — sitting, walking, standing,

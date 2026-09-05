@@ -3,6 +3,26 @@
 Source for [findingtheself.app](https://findingtheself.app) (this folder) and
 [journal.findingtheself.app](https://journal.findingtheself.app) (`/journal`).
 
+**"I Am" now built into Witness.Self and Reflect.Self, not just the blog (5 Sept 2026):** the
+meditation app's guided-session script that was flagged as "discussed but not built" below is now
+built. `witness/index.html` has a sixth technique, `nisargadatta` (in `TECHNIQUES`,
+`TECHNIQUE_KEYS`, `TEACHER_LABELS`, and the technique-grid), deliberately placed last, after Kali,
+right before "Surprise Me" — it's positioned as the further stage witnessing leads to, not just
+another equal option. Its script (same `{t, line, byPosture, closing}` shape as the other five, so
+it works with the existing timer/TTS/random-pick logic with no other code changes) opens by naming
+that you've already been watching, then asks you to let the watching itself go and rest as the
+plain sense "I am." Welcome-screen copy and the page's meta description were updated from "five
+voices" to "six," with a line about the arc from witnessing to letting the witness go. No new
+audio was recorded — like all five other techniques, it plays through the existing live-TTS
+fallback path, so it sounds identical in kind to the rest.
+
+The journal's Self-Inquiry sequence (`journal/index.html`, `INQUIRY_QUESTIONS`) went from 10
+questions to 13 — the extra three carry the same neti-neti sequence past "what's here?" into
+resting as "I am" itself, so the practice has an explicit endpoint instead of trailing off. The
+inquiry screen's intro paragraph now names Nisargadatta and "I Am That" directly. The `WRITE_PROMPTS`
+additions from the same teaching were already in place from the earlier pass. The blog itself
+wasn't touched this round — it was already done and signed off.
+
 **New teacher added, 5 Sept 2026: Nisargadatta Maharaj.** `index.html` now has an eighth teacher
 article (`id="nisargadatta"`), placed right after Ramana Maharshi in the Eight Voices section —
 bio + four short quotes from *I Am That*, matching the existing teacher-bio format exactly. All
