@@ -13,6 +13,21 @@ teaching (abiding in the plain sense "I am," before any story about being someon
 Nothing changed in the meditation app — a full "I Am" guided-session script was discussed but not
 built yet; ask if that's still wanted.
 
+**Follow-up fix, same day:** the "Inspiration ▾" nav dropdown (`#inspiration-menu` in `index.html`)
+has its own separate, hardcoded list of teacher links — adding the new `<article>` section didn't
+touch it, so it still only showed seven. Added `<a href="#nisargadatta">Nisargadatta</a>` there too
+(right after Maharshi, same placement logic), and caught one more stray "seven voices" reference in
+`self-system.html`'s blog product-card copy. Checked the rest of the repo for any other hardcoded
+teacher lists or counts — none found; this dropdown was the only other spot.
+
+**The "Self and the Machine" reflection is now a real page, same day:** it had only been delivered
+as plain text before. Added `reflections/day-nine-the-self-and-the-machine.html` (same markup as
+the other eight day-entries — rail header, entry-meta, body, related-teaching box cross-linked to
+the new Nisargadatta section, prev/next nav), wired Day Eight's "next" link forward to it, added it
+to the top of `reflections/index.html`'s list, and swapped it into the homepage's 3-entry teaser
+(bumping Day Four out of the teaser — still reachable from the full Reflections index, nothing
+deleted). Verified all three pages render cleanly with Playwright before zipping.
+
 **New page, not yet linked from anywhere (4 Sept 2026):** `the-self-and-ai.html` — an essay ("The
 Self and the Machine") reworking the "Ultimate Self & AI" comparison artifact into the site's own
 voice and design system (same tokens/typography as `self-system.html`, prose instead of an
