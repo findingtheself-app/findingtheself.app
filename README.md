@@ -3,6 +3,23 @@
 Source for [findingtheself.app](https://findingtheself.app) (this folder) and
 [journal.findingtheself.app](https://journal.findingtheself.app) (`/journal`).
 
+**New teacher added, 5 Sept 2026: Nisargadatta Maharaj.** `index.html` now has an eighth teacher
+article (`id="nisargadatta"`), placed right after Ramana Maharshi in the Eight Voices section —
+bio + four short quotes from *I Am That*, matching the existing teacher-bio format exactly. All
+"seven teachers / seven voices" copy on the page (meta description, hero intro, About-Sandeep
+paragraph, section heading, Daily Inspiration blurb) was updated to "eight" to match. The journal
+(`journal/index.html`) also picked up three new self-inquiry `WRITE_PROMPTS` drawn from his core
+teaching (abiding in the plain sense "I am," before any story about being someone gets added).
+Nothing changed in the meditation app — a full "I Am" guided-session script was discussed but not
+built yet; ask if that's still wanted.
+
+**New page, not yet linked from anywhere (4 Sept 2026):** `the-self-and-ai.html` — an essay ("The
+Self and the Machine") reworking the "Ultimate Self & AI" comparison artifact into the site's own
+voice and design system (same tokens/typography as `self-system.html`, prose instead of an
+icon-and-stat-card infographic). It's a standalone file right now — nothing in the nav or homepage
+links to it yet, on purpose, since where it should live (main nav? a homepage teaser? folded into
+Reflections?) hasn't been decided.
+
 ## How this repo came to exist
 
 This code was rebuilt by Claude on 2 Sept 2026, directly from the **live, deployed site** — not
